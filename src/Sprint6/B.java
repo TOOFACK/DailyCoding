@@ -38,12 +38,25 @@ public class B {
               }
             } else {
 
-                for(int i =0; i < line2.length(); i++){
+                int bIndex = 0;
+                int lIndex = 0;
 
-
+                while(bIndex < line2.length()){
+                    if(line2.charAt(bIndex) != line1.charAt(lIndex)){
+                        wrongs++;
+                        bIndex++;
+                    } else {
+                        lIndex++;
+                        bIndex++;
+                    }
                 }
             }
         }
 
+        if(wrongs < 2){
+            System.out.println("OK");
+        } else {
+            System.out.println("FAIL");
+        }
     }
 }
