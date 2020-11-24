@@ -19,9 +19,9 @@ public class C {
             if(!vals.containsKey(line.charAt(i))){
                 vals.put(line.charAt(i), 1);
             } else {
-                int t = vals.get(line.charAt(i));
-                t++;
-                vals.put(line.charAt(i), t);
+                int l = vals.get(line.charAt(i));
+                l++;
+                vals.put(line.charAt(i), l);
             }
         }
 
