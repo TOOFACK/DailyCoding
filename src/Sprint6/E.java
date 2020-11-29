@@ -18,6 +18,7 @@ public class E {
                 index++;
                 continue;
             }
+
             list.add(index, line);
 
         }
