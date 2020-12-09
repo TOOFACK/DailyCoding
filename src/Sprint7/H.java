@@ -1,39 +1,65 @@
 package Sprint7;
 
+import java.io.BufferedReader;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 
 public class H {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int vertex = in.nextInt();
-        int edge = in.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader("input.txt"));
+        String[] v = reader.readLine().split(" ");
 
-        int[][] graph = new int[vertex+1][vertex+1];
+        int vertex = Integer.parseInt(v[0]);
+        int edge = Integer.parseInt(v[1]);
+
+        Map<Integer, Set<Integer>> matrix = new HashMap<>();
+
+        for (int i = 0; i < edge; i++) {
+            v = reader.readLine().split(" ");
+            int v1 = Integer.parseInt(v[0]);
+            int v2 = Integer.parseInt(v[1]);
 
 
-        for(int i =0; i < edge; i++) {
-            int v1 = in.nextInt();
-            int v2 = in.nextInt();
-            if (v1 != v2) {
-                if (Arrays.stream(graph[v2]).noneMatch(x -> x == v1)) {
-                        graph[v1][v2] =1;
-                        graph[v2][v1] = 1;
-
+                if (!matrix.containsKey(v1)) {
+                    Set<Integer> t = new HashSet<>();
+                    t.add(v2);
+                    matrix.put(v1, t);
+                } else {
+                    Set<Integer> t = matrix.get(v1);
+                    t.add(v2);
+                    matrix.put(v1, t);
                 }
-            }
-        }
-        boolean vseOk = true;
 
-        for(int i =1; i < vertex + 1; i++){
-            int sum = Arrays.stream(graph[i]).sum();
-            if(sum < vertex - 1){
+                if (!matrix.containsKey(v2)) {
+                    Set<Integer> t = new HashSet<>();
+                    t.add(v1);
+                    matrix.put(v2, t);
+                } else {
+                    Set<Integer> t = matrix.get(v2);
+                    t.add(v1);
+                    matrix.put(v2, t);
+                }
+
+        }
+
+        boolean vseOk = true;
+        for(Set<Integer> t : matrix.values()){
+            if(t.size() <= vertex){
                 vseOk = false;
                 break;
             }
         }
 
         System.out.println(vseOk ? "YES" : "NO");
+
+
+
+
     }
 }
