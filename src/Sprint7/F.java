@@ -11,18 +11,20 @@ public class F {
 
 
     public static void main(String[] args) throws IOException {
-        BufferedReader bf = new BufferedReader(new FileReader("/home/pavel/input.txt"));
-        String[] line = bf.readLine().split(" ");
+        BufferedReader bf = new BufferedReader(new FileReader("/home/pavel/input.txt"),15000);
+
 
         HashMap<Integer, ArrayList<Integer>> graph = new HashMap<>();
+        StringTokenizer st = new StringTokenizer(bf.readLine(), " ");
 
-        int vertex = Integer.parseInt(line[0]);
-        int edge = Integer.parseInt(line[1]);
+        int vertex = Integer.parseInt(st.nextToken());
+        int edge = Integer.parseInt(st.nextToken());
 
         for(int i = 0; i < edge; i++){
-            line = bf.readLine().split(" ");
-            int v1 = Integer.parseInt(line[0]);
-            int v2 = Integer.parseInt(line[1]);
+             st = new StringTokenizer(bf.readLine(), " ");
+
+            int v1 = Integer.parseInt(st.nextToken());
+            int v2 = Integer.parseInt(st.nextToken());
             if(v1 != v2) {
                 ArrayList<Integer> t;
                 if (!graph.containsKey(v1)) {
@@ -44,16 +46,17 @@ public class F {
             }
 
         }
-
+        PrintWriter  out = new PrintWriter(System.out);
         if(vertex != 0) {
-            line = bf.readLine().split(" ");
-            bfs(Integer.parseInt(line[0]),graph,vertex, Integer.parseInt(line[1]));
+             st = new StringTokenizer(bf.readLine(), " ");
+            out.print(bfs(Integer.parseInt(st.nextToken()),graph,vertex, Integer.parseInt(st.nextToken())));
+            out.flush();
         }
     }
 
-     static void  bfs(int s, HashMap<Integer, ArrayList<Integer>> graph,int f, int end){
+    static int bfs(int s, HashMap<Integer, ArrayList<Integer>> graph, int f, int end){
 
-          PrintWriter  out = new PrintWriter(System.out);
+
 
         int[] color = new int[f + 1];
         int[] dist = new int[f + 1];
@@ -94,7 +97,7 @@ public class F {
             }
             if(!go) break;
         }
-        out.print(dist[end]);
-        out.flush();
+        return (dist[end]);
+
     }
 }
