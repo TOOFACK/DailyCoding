@@ -1,7 +1,7 @@
 package Sprint7;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -57,6 +57,15 @@ public class E {
             if(!i){
                 amountIstok++;
             }
+        }
+
+        if(vertex > 1){
+            if(amountIstok > 0 || amountStock > 0){
+                isStrong = false;
+            }
+        }
+        if(isStrong){
+
         }
 
 
