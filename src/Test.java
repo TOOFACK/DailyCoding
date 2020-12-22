@@ -18,6 +18,8 @@ public class Test {
         String d = in.next();
 
         System.out.println(a+ " " +  b +  " "  + c + " " +d);
+
+
     }
 
 
