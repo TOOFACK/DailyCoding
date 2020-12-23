@@ -12,14 +12,14 @@ public class Test {
         System.out.println(hashtable.entrySet());
         System.out.println(hashtable.containsValue(2));
         Scanner in = new Scanner(System.in);
-        String a = in.next();
-        String b = in.next();
-        String c = in.next();
-        String d = in.next();
-
-        System.out.println(a+ " " +  b +  " "  + c + " " +d);
 
 
+//        System.out.println(a+ " " +  b +  " "  + c + " " +d);
+
+        int h = 0;
+        h+= 101%10;
+        System.out.println(h);
+        System.out.println("hi");
     }
 
 
