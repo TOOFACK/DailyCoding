@@ -55,8 +55,7 @@ public class B {
 //                        System.out.println("income = " + mas[k+1] + " - " + mas[i] +" = " + income);
                         k++;
                     } else{
-                        i = k;
-//                        System.out.println("i changed");
+
                         break;
                     }
                 }
