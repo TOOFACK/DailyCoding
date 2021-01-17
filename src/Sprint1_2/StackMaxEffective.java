@@ -79,10 +79,12 @@ public class StackMaxEffective {
                 comms = s.split(" ");
                 if(comms[0].equalsIgnoreCase("get_max")){
                     ans.add( stack.get_max());
+                    System.out.println(stack.get_max());
                 } else if(comms[0].equalsIgnoreCase("pop")){
-                    ans.add(stack.pop());
+                    System.out.println(stack.pop());
                 } else if(comms[0].equalsIgnoreCase("push")){
                     stack.push(Integer.parseInt(comms[1]));
+
                 }
 
             } catch (NullPointerException e) {

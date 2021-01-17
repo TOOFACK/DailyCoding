@@ -20,6 +20,7 @@ public class Test {
         h+= 101%10;
         System.out.println(h);
         System.out.println("hi");
+        System.out.println(9/2);
     }
 
     
